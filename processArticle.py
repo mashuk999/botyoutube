@@ -3,6 +3,10 @@ import xmltodict
 from bs4 import BeautifulSoup
 # from . import models
 import re
+# from models import *
+import settings
+
+
 
 
 def findArticle():
@@ -23,16 +27,15 @@ def findArticle():
     content = scrapArticle(web_page)
     YTtitle = getYoutubeTitle(url)
 
-    
-
     return jsonFormat['title'], jsonFormat['description'], content, YTtitle
 
 def getUniqueArticle(jsonFormat):
     for item in jsonFormat:
         if len(getYoutubeTitle(item['guid']['#text'])) <= 100:
             try:
-                obj = models.uploadedVideos.objects.get(title=item['title'])
-            except models.uploadedVideos.DoesNotExist:
+                obj = item.title
+                print(item.title)
+            except:
                 return item
     return None
 

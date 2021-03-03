@@ -1,5 +1,8 @@
 import os
 import shutil
+import settings
+
+
 
 try:
     from bing import Bing

@@ -7,6 +7,11 @@ import urllib.request
 from gtts import gTTS,tts
 import shutil
 from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip
+import settings
+
+
+
+
 
 def makeAudio(name,content):
     try:

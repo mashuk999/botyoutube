@@ -6,6 +6,8 @@ import urllib
 import imghdr
 import posixpath
 import re
+import settings
+
 
 '''
 Python api to download image form Bing.
