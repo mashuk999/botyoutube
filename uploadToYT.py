@@ -73,8 +73,8 @@ VALID_PRIVACY_STATUSES = ("public", "private", "unlisted")
 
 def get_authenticated_service(args):
   flow = flow_from_clientsecrets(CLIENT_SECRETS_FILE,
+  
     scope=YOUTUBE_UPLOAD_SCOPE,
-    access_type='offline',
     message=MISSING_CLIENT_SECRETS_MESSAGE)
 
   storage = Storage("%s-oauth2.json" % sys.argv[0])
