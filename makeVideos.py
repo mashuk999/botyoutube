@@ -82,8 +82,8 @@ def makeVideo(name,content):
         addAudioToVideo(name)
         
         return os.path.join(settings.BASE_DIR, r"dataset/"+name+r'/'+name+r'.mp4')
-    except:
-        print('m.v. makevideo')
+    except Exception as e:
+        print(e)
 
 
 # Video Generating function 
