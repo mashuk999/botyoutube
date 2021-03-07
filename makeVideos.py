@@ -128,7 +128,7 @@ def addAudioToVideo(name):
         videoclip = videoclip.set_audio(audiofile)
         # videoclip.audio = new_audioclip
         videoclip = videoclip.subclip(0, audiofile.duration)
-        videoclip = videoclip.speedx(factor=1.3)
+        videoclip = videoclip.speedx(factor=1.1)
         # videoclip = videoclip.fx(speedx, 1.3)
         videoclip.write_videofile(name+".mp4")
     except:

@@ -164,8 +164,8 @@ def resumable_upload(insert_request):
         sleep_seconds = random.random() * max_sleep
         print("Sleeping %f seconds and then retrying..." % sleep_seconds)
         time.sleep(sleep_seconds)
-  except:
-    print('last uty')
+  except Exception as e:
+    print(e)
 
 if __name__ == '__main__':
   argparser.add_argument("--file", required=True, help="Video file to upload")

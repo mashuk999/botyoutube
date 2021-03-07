@@ -1,6 +1,4 @@
 import os 
-# from django.http import HttpResponse
-# from django.conf import settings
 from processArticle import *
 from makeVideos import *
 from wsgiref.util import FileWrapper
@@ -8,26 +6,46 @@ from uploadToYT import *
 import os
 from django.conf import settings
 import shutil
-import datetime
 from gtts import gTTS
-import datetime,random
+import random
 import settings
+import requests, json, datetime 
+from uploadfiletoheroku import *
 
 
+
+def checktime():
+    fetchdata=requests.get('http://127.0.0.1:8000/entertainx/')
+    data=fetchdata.json()
+    # print(data['nextrandom'])
+    nextran= datetime.datetime.strptime(data['nextrandom'],"%Y-%m-%dT%H:%M:%SZ")
+    print(nextran)
+    # print(nextran)
+    # print(type(nextran))
+    # print(datetime.now)
+    datime=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+    print(datime)
+    dateee=datetime.datetime.strptime(datime,"%Y-%m-%d %H:%M:%S")
+
+    #--------
+
+    if nextran < dateee  or True :
+       print("We will post video")
+       requestVideo()
+    else:
+        print("We will wait for minutes since it is time error")
 
 
 
 
 def requestVideo():
-    try:
-    # objTime =/ models.uploadedVideos.objects.latest('id')
+    try:        
+        r=requests.get('http://lit-sierra-15246.herokuapp.com/gettitle/')
 
-    # if objTime is None or objTime.nextRandom is None or objTime.nextRandom > datetime.datetime.now(datetime.timezone.utc):
-    #     return HttpResponse('Time Error')
-        
-        title,summary,content,YTtitle = findArticle()
-
-        title='google'
+        title=(r.json()['title'])
+        YTtitle=(r.json()['Ytitle'])
+        content=(r.json()['content'])
+        summary=(r.json()['summary'])
 
         if title == 0:
             return HttpResponse('No more Unique')
@@ -41,28 +59,26 @@ def requestVideo():
 
         os.chdir(os.path.join(settings.BASE_DIR,''))
 
-        credit = '''\nWe take DMCA very seriously. All the images are from Bing Images.Since all the contents are not moderated so If anyway we hurt anyone sentiment, send us an request with valid proof.
+        credit = '''\nWe take DMCA very seriously. All the images are from Bing Images.Since all the contents are not moderated so If anyway we hurt anyone sentiment, send us a request with valid proof.
         '''
         keywords = ','.join(str(YTtitle).split())
 
         print(YTtitle)
 
-
-        command = 'python ./bott/uploadToYT.py --file="'+str(p)+'" --title="'+YTtitle+'" --description="'+(summary+'\n'+credit)+'" --keywords="'+keywords+',hour news,news" --category="25" --privacyStatus="public" --noauth_local_webserver '
-        os.system(command)
+        command = 'python ./bott/uploadToYT.py --file="'+str(p)+'" --title="'+YTtitle+'" --description="'+(summary+'\n'+credit)+'" --keywords="'+keywords+',hour news,news" --category="24" --privacyStatus="public" --noauth_local_webserver ' 
+        uploadvideotoheroku(p,YTtitle)
+        
         # os.system(command) #comment this to stop uploading to youtube
         # shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset")) # comment this to stop removing the file from system
-        # obj = models.uploadedVideos(title = title,
-        # nextRandom=(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=random.randrange(245, 350))))
         print('Success')
 
 
     except:
         print('views function')
 
+    
 
 
 
 
-
-requestVideo()
+checktime()
