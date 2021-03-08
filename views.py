@@ -47,11 +47,15 @@ def requestVideo():
         content=(r.json()['content'])
         summary=(r.json()['summary'])
 
-        if title == 0:
-            return HttpResponse('No more Unique')
+        if title == 0 or title is None:
+            print("All Posted Already")
+            exit()
+        
+        #Replacing space with hiphens to resolve filepath issue in linux
+        title.replace(' ','-')
 
 
-        p = makeVideo(YTtitle[:240]+' hd',content)
+        p = makeVideo(title+' hd',content)
 
         if p =='GTTS ERR':
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
