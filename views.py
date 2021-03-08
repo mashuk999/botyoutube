@@ -52,7 +52,8 @@ def requestVideo():
             exit()
         
         #Replacing space with hiphens to resolve filepath issue in linux
-        title.replace(' ','-')
+        if title is not None:
+            title.replace(' ','-')
 
 
         p = makeVideo(title+' hd',content)

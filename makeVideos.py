@@ -28,6 +28,7 @@ def makeAudio(name,content):
 
 def downloadImages(title):
     try:
+        title.replace(' ','-')
         os.chdir(os.path.join(settings.BASE_DIR,''))
         download(title, limit=10,  output_dir='dataset', adult_filter_off=True, force_replace=False, timeout=300)
     except:
