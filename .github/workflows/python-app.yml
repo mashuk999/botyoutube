@@ -4,16 +4,16 @@
 
 name: youtube entertainment bot
 
-# on: 
-#   push:
-#     branches: [ master ]
-#   pull_request:
-#     branches: [ master ]
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-name: Do things every 10 minutes
-on:
-  schedule:
-    - cron: "*/10 * * * *"
+# name: Do things every 10 minutes
+# on:
+#   schedule:
+#     - cron: "*/10 * * * *"
 
 jobs: 
   build:
