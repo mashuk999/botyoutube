@@ -15,7 +15,7 @@ from uploadfiletoheroku import *
 
 
 def checktime():
-    fetchdata=requests.get('http://127.0.0.1:8000/entertainx/')
+    fetchdata=requests.get('http://lit-sierra-15246.herokuapp.com/gettitle/')
     data=fetchdata.json()
     # print(data['nextrandom'])
     nextran= datetime.datetime.strptime(data['nextrandom'],"%Y-%m-%dT%H:%M:%SZ")
