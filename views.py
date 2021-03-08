@@ -38,7 +38,7 @@ def checktime():
 
 def requestVideo():
     try:       
-        r=requests.get('http://127.0.0.1:8000/gettitle/')
+        r=requests.get('http://lit-sierra-15246.herokuapp.com/gettitle/')
         print(r)
 
         title=(r.json()['title'])
