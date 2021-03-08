@@ -77,8 +77,9 @@ def requestVideo():
         print('Success')
 
 
-    except:
+    except Exception as e:
         print('views function')
+        print(e)
 
     
 
