@@ -27,8 +27,6 @@ def checktime():
     print(datime)
     dateee=datetime.datetime.strptime(datime,"%Y-%m-%d %H:%M:%S")
 
-    #--------
-
     if nextran < dateee  or True :
        print("We will post video")
        requestVideo()
@@ -39,15 +37,15 @@ def checktime():
 
 
 def requestVideo():
-    try:        
-        r=requests.get('http://lit-sierra-15246.herokuapp.com/gettitle/')
+    try:       
+        r=requests.get('http://127.0.0.1:8000/gettitle/')
+        print(r)
 
         title=(r.json()['title'])
         YTtitle=(r.json()['Ytitle'])
         content=(r.json()['content'])
         summary=(r.json()['summary'])
-
-        if title == 0 or title is None:
+        if title == 0 or title is None or content is None or content == '':
             print("All Posted Already")
             exit()
         
