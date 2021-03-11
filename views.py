@@ -15,7 +15,7 @@ from uploadfiletoheroku import *
 
 
 def checktime():
-    fetchdata=requests.get('http://lit-sierra-15246.herokuapp.com/entertainx/')
+    fetchdata=requests.get('http://yash2002.pythonanywhere.com/entertainx/')
     data=fetchdata.json()
     # print(data['nextrandom'])
     nextran= datetime.datetime.strptime(data['nextrandom'],"%Y-%m-%dT%H:%M:%SZ")
@@ -38,7 +38,7 @@ def checktime():
 
 def requestVideo():
     try:       
-        r=requests.get('http://lit-sierra-15246.herokuapp.com/gettitle/')
+        r=requests.get('http://yash2002.pythonanywhere.com/gettitle/')
         print(r)
 
         title=(r.json()['title'])
