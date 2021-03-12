@@ -26,8 +26,9 @@ def makeAudio(name,content):
             print(e)
             return False
         return True
-    except: 
+    except Exception as e: 
         print('m.v. makeaudio')
+        print(e)
 
 def downloadImages(title):
     try:
