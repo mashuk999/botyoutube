@@ -37,8 +37,9 @@ def download(query, limit=100, output_dir='dataset', adult_filter_off=True, forc
 
         bing = Bing(query, limit, output_dir, adult, timeout)
         bing.run()
-    except:
+    except Exception as e:
         print('downlaoder.py')
+        print(e)
 
 
     if __name__ == '__main__':

@@ -31,7 +31,7 @@ def makeAudio(name,content):
 
 def downloadImages(title):
     try:
-        title.replace(' ','-')
+        # title.replace(' ','-')
         os.chdir(os.path.join(settings.BASE_DIR,''))
         download(title, limit=10,  output_dir='dataset', adult_filter_off=True, force_replace=False, timeout=300)
     except:
@@ -40,6 +40,18 @@ def downloadImages(title):
 
 def makeVideo(name,content):
     try:
+        name.replace('-',' ')
+        name.replace('/',' ')
+        name.replace(':',' ')
+        name.replace(',',' ')
+        name.replace('?',' ')
+        name.replace('<',' ')
+        name.replace('>',' ')
+        name.replace('|',' ')
+        name.replace('"',' ')
+        print(name)
+        name=name[:18]
+        print(name)
         print(os.path.isdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)))
         if os.path.isdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)):
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset/"+name))

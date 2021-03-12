@@ -15,6 +15,7 @@ from uploadfiletoheroku import *
 
 
 def checktime():
+    # fetchdata=requests.get('http:/ytserver.eu-gb.cf.appdomain.cloud/entertainx/')
     fetchdata=requests.get('http:/ytserver.eu-gb.cf.appdomain.cloud/entertainx/')
     data=fetchdata.json()
     # print(data['nextrandom'])
@@ -38,7 +39,7 @@ def checktime():
 
 def requestVideo():
     try:       
-        r=requests.get('http:/ytserver.eu-gb.cf.appdomain.cloud/gettitle')
+        r=requests.get('http:/ytserver.eu-gb.cf.appdomain.cloud/gettitle/')
         print(r)
 
         title=(r.json()['title'])
@@ -54,7 +55,7 @@ def requestVideo():
             title.replace(' ','-')
 
 
-        p = makeVideo(title+' hd',content)
+        p = makeVideo(YTtitle+' hd',content)
 
         if p =='GTTS ERR':
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
