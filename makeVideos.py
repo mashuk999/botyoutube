@@ -122,7 +122,7 @@ def generate_video(name):
                     video.write(cv2.imread(os.path.join(image_folder, image)))
             videoToLoop-=(frameRate*len(images))
         # Deallocating memories taken for window creation 
-        #cv2.destroyAllWindows() 
+        cv2.destroyAllWindows()
         video.release() # releasing the video generated 
         print(os.listdir())
     except:
