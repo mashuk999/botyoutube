@@ -22,7 +22,7 @@ def makeAudio(name,content):
         except tts.gTTSError as e:
             print(e)
             return False
-        except:
+        except Exception as e:
             print(e)
             return False
         return True
