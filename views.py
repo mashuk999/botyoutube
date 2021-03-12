@@ -56,7 +56,7 @@ def requestVideo():
 
         newYTtitle = YTtitle
         newYTtitle = newYTtitle.replace(' ','-')
-        p = makeVideo(newYTtitle+'hd',content)
+        p = makeVideo(newYTtitle+'-hd',content)
 
         if p =='GTTS ERR':
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
