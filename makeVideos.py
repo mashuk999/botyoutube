@@ -84,6 +84,8 @@ def makeVideo(name,content):
 
         generate_video(name) 
 
+        print('Video Generated')
+
         addAudioToVideo(name)
         
         return os.path.join(settings.BASE_DIR, r"dataset/"+name+r'/'+name+r'.mp4')
