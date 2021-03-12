@@ -125,8 +125,9 @@ def generate_video(name):
         cv2.destroyAllWindows()
         video.release() # releasing the video generated 
         print(os.listdir())
-    except:
+    except Exception as e:
         print('m.v. generatevideo')
+        print(e)
     
         
 def addAudioToVideo(name):
