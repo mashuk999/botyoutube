@@ -54,7 +54,8 @@ def requestVideo():
         if title is not None:
             title.replace(' ','-')
 
-
+        newYTtitle = YTtitle
+        newYTtitle.replace(' ','-')
         p = makeVideo(YTtitle+' hd',content)
 
         if p =='GTTS ERR':
