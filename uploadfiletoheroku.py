@@ -5,7 +5,7 @@ import requests
 def uploadvideotoheroku(filepath,YTtitle):
     try:
         print(filepath)
-        myurl = 'http://yash2002.pythonanywhere.com/videoupload/'
+        myurl = 'http:/ytserver.eu-gb.cf.appdomain.cloud/videoupload/'
         video = {'video': open(filepath, 'rb')}
         title={'title':'hello'}
         getdata = requests.post(myurl,data=title, files=video)
