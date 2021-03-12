@@ -37,7 +37,7 @@ jobs:
           ${{ runner.os }}-
     - name: Install dependencies
       run: |
-        apt update
+        apt-get update
         python -m pip install --upgrade pip
         # pip install flake8 
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
