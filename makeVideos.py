@@ -123,6 +123,7 @@ def generate_video(name):
         video.release() # releasing the video generated 
     except:
         print('m.v. generatevideo')
+    
         
 def addAudioToVideo(name):
     try:
@@ -136,5 +137,6 @@ def addAudioToVideo(name):
         videoclip = videoclip.speedx(factor=1.1)
         # videoclip = videoclip.fx(speedx, 1.3)
         videoclip.write_videofile(name+".mp4")
-    except:
+    except Exception as e:
         print('addaudioto video m.v.')
+        print(e)
