@@ -48,7 +48,7 @@ def getUniqueArticle(jsonFormat):
 def getLatestXML():
     try:
         req = urllib.request.Request(
-        'https://www.amarujala.com/rss/etawah.xml',
+        'https://www.amarujala.com/rss/breaking-news.xml',
         data=None,
 
         headers = {
@@ -77,8 +77,8 @@ def getArticleWebpage(url):
 def scrapArticle(web_page):
     try:
         soup = BeautifulSoup(web_page, 'html.parser')
-        content =  soup.find("div", {"class": "article-desc ul_styling",})
-        contentn = content.find("div", {"class": "article-desc ul_styling",})
+        content =  soup.find("div", {"class" : "article-desc ul_styling"})
+        contentn = content.find("div",{"style":"text-align: justify;"})
         if contentn is not None:
             content = contentn
 
