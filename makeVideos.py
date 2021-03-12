@@ -40,16 +40,6 @@ def downloadImages(title):
 
 def makeVideo(name,content):
     try:
-        name.replace('-',' ')
-        name.replace('/',' ')
-        name.replace(':',' ')
-        name.replace(',',' ')
-        name.replace('?',' ')
-        name.replace('<',' ')
-        name.replace('>',' ')
-        name.replace('|',' ')
-        name.replace('"',' ')
-        print(name)
         print(os.path.isdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)))
         if os.path.isdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)):
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset/"+name))
