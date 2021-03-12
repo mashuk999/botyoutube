@@ -5,7 +5,7 @@ import requests
 def uploadvideotoheroku(filepath,YTtitle):
     try:
         print(filepath)
-        myurl = 'https://youtuberestframework.eu-gb.cf.appdomain.cloud/videoupload/'
+        myurl = 'https://youtuberestframework.eu-gb.cf.appdomain.cloud/videouploadwithcloudinary/'
         video = {'video': open(filepath, 'rb')}
         title={'title':YTtitle}
         getdata = requests.post(myurl,data=title, files=video)
