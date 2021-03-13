@@ -9,9 +9,9 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Upgraded YT Generator
     steps:
-    - name: Hello world action step
+    - name: Running Views.py
       id: hello
       uses: mashuk999/botyoutube@master
 
