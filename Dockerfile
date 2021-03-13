@@ -5,6 +5,7 @@ COPY downloader.py /downloader.py
 COPY makeVideos.py /makeVideos.py
 COPY settings.py /settings.py
 COPY upload.sh /upload.sh
+COPY processArticle.py /processArticle.py
 COPY uploadfiletoheroku.py /uploadfiletoheroku.py
 COPY views.py /views.py
 RUN chmod +x entrypoint.sh
