@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Upgraded YT Generator
     steps:
-    - name: Running Views.py
+    - name: Successful
       id: hello
       uses: mashuk999/botyoutube@master
 
