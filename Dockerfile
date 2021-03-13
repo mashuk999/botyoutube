@@ -9,5 +9,6 @@ COPY processArticle.py /processArticle.py
 COPY uploadfiletoheroku.py /uploadfiletoheroku.py
 COPY views.py /views.py
 RUN chmod +x entrypoint.sh
+RUN pip3 install opencv-python
 RUN python3 views.py
 # RUN pip3 freeze
