@@ -47,7 +47,7 @@ def requestVideo():
         content=(r.json()['content'])
         summary=(r.json()['summary'])
         if title == 0 or title is None or content is None or content == '':
-            print("All Posted Already")
+            print("Content or title is either blank or incorrect")
             exit()
         
         #Replacing space with hiphens to resolve filepath issue in linux
