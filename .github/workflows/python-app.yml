@@ -9,16 +9,11 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to make it faster
+    name: A job to say hello
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: 'Make Video'
-      description: 'Superfast'
-      uses: ./
-      runs:
-        using: 'docker'
-        image: 'Dockerfile'
+    - name: Hello world action step
+      id: hello
+      uses: mashuk999/botyoutube@master
 
 # name: Do things every 10 minutes
 # on:
