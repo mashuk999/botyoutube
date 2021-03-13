@@ -16,7 +16,7 @@ from uploadfiletoheroku import *
 
 def checktime():
     # fetchdata=requests.get('http:/ytserver.eu-gb.cf.appdomain.cloud/entertainx/')
-    fetchdata=requests.get('https://youtuberestframework.eu-gb.cf.appdomain.cloud/entertainx/')
+    fetchdata=requests.get('https://ytserver.eu-gb.cf.appdomain.cloud/entertainx/')
     data=fetchdata.json()
     # print(data['nextrandom'])
     nextran= datetime.datetime.strptime(data['nextrandom'],"%Y-%m-%dT%H:%M:%SZ")
@@ -39,7 +39,7 @@ def checktime():
 
 def requestVideo():
     try:       
-        r=requests.get('https://youtuberestframework.eu-gb.cf.appdomain.cloud/gettitle/')
+        r=requests.get('https://ytserver.eu-gb.cf.appdomain.cloud/gettitle/')
         print(r)
 
         title=(r.json()['title'])
