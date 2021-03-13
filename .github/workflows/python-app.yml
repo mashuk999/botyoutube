@@ -1,6 +1,13 @@
 # action.yml
 name: 'YT Server'
 description: 'Super Fast'
+
+on: 
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
