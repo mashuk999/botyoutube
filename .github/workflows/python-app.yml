@@ -19,10 +19,7 @@ on:
 #   build:
 
 #     runs-on: ubuntu-18.04
-
-
-- name: runing views.py 
-  runs:
+runs:
   using: 'docker'
   image: 'Dockerfile'
 #     - uses: actions/checkout@v2
