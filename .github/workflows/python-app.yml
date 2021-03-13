@@ -13,6 +13,7 @@ jobs:
     steps:
     - name: 'Make Video'
       description: 'Superfast'
+      uses: ./
       runs:
         using: 'docker'
         image: 'Dockerfile'
