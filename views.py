@@ -50,13 +50,13 @@ def requestVideo():
             print("Content or title is either blank or incorrect")
             exit()
         
-        #Replacing space with hiphens to resolve filepath issue in linux
-        if title is not None:
-            title.replace(' ','-')
+        # #Replacing space with hiphens to resolve filepath issue in linux
+        # if title is not None:
+        #     title.replace(' ','-')
 
         newYTtitle = YTtitle
-        newYTtitle = newYTtitle.replace(' ','-')
-        p = makeVideo(newYTtitle+'-hd',content)
+        # newYTtitle = newYTtitle.replace(' ','-')
+        p = makeVideo(newYTtitle+' hd',content)
 
         if p =='GTTS ERR':
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
