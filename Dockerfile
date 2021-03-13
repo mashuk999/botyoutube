@@ -8,4 +8,5 @@ COPY upload.sh /upload.sh
 COPY uploadfiletoheroku.py /uploadfiletoheroku.py
 COPY views.py /views.py
 RUN chmod +x entrypoint.sh
+RUN ls
 ENTRYPOINT ["/entrypoint.sh"]
