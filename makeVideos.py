@@ -142,7 +142,8 @@ def addAudioToVideo(name):
         videoclip = videoclip.subclip(0, audiofile.duration)
         videoclip = videoclip.speedx(factor=1.1)
         # videoclip = videoclip.fx(speedx, 1.3)
-        videoclip.write_videofile(name+".mp4")
+        os.chdir(os.path.join(settings.BASE_DIR, ""))
+        videoclip.write_videofile("final"+".mp4")
     except Exception as e:
         print('addaudioto video m.v.')
         print(e)
