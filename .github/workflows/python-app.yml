@@ -15,16 +15,16 @@ on:
 #   schedule:
 #     - cron: "*/10 * * * *"
 
-jobs: 
-  build:
+# jobs: 
+#   build:
 
-    runs-on: ubuntu-18.04
+#     runs-on: ubuntu-18.04
 
-    steps:
-    - name: runing views.py 
-      runs:
-      using: 'docker'
-      image: 'Dockerfile'
+
+- name: runing views.py 
+  runs:
+  using: 'docker'
+  image: 'Dockerfile'
 #     - uses: actions/checkout@v2
 #     - name: Set up Python 3.9
 #       uses: actions/setup-python@v2
